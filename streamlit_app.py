@@ -20,7 +20,8 @@ def load_pipeline():
         vectorstore.add_documents(chunks, chunks_embedding)
         retriever = vectorstore.get_retriever(embd_model)
         llm = LLM(retriever)
-        return llm
+    
+    return llm
 
 
 if __name__ == '__main__':
