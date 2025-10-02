@@ -8,7 +8,7 @@ from langchain.vectorstores import Chroma
 from langchain.schema import Document
 from uuid import uuid4
 
-DATA_DIR = os.path.join(BASE_DIR, "db")
+DATA_DIR = os.path.join(BASE_DIR, "data", "db")
 
 
 class VectorStore:
