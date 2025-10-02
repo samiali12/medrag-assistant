@@ -2,6 +2,8 @@ import os
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.chains import RetrievalQA
 from dotenv import load_dotenv
+from langchain_core.prompts import PromptTemplate
+from src.prompt import prompt
 
 load_dotenv()
 
@@ -14,7 +16,8 @@ class LLM:
             llm=self.llm,
             retriever=retriever,
             chain_type="stuff",
-            return_source_documents=True
+            return_source_documents=True,
+            chain_type_kwargs={"prompt": prompt}
         )
 
     def invoke(self, query: str):

@@ -1,0 +1,13 @@
+“What are the most recent findings on CRISPR applications in cancer therapy?”
+
+“Summarize how long COVID affects the immune system.”
+
+“What role does gut microbiota play in Alzheimer’s disease according to recent studies?”
+
+“List common biomarkers used for early detection of pancreatic cancer.”
+
+“How effective are mRNA vaccines compared to traditional vaccines for influenza?”
+
+“What are the side effects of CAR-T cell therapy mentioned in clinical trials?”
+
+“Summarize advancements in AI-driven drug discovery in the last 5 years.”
