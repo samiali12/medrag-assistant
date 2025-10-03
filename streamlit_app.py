@@ -9,18 +9,16 @@ import streamlit as st
 @st.cache_resource(show_spinner="🔄 Building pipeline...")
 def load_pipeline():
     flag = download_pmc_docs()
-    if flag:
-        dp = DataProcessor()
-        chunks, document = dp.build()
-        chunks_list = [c.page_content for c in chunks]
-        embd = EmbeddingManager()
-        embd_model = embd.get_model()
-        chunks_embedding = embd.embed_texts(chunks_list)
-        vectorstore = VectorStore()
-        vectorstore.add_documents(chunks, chunks_embedding)
-        retriever = vectorstore.get_retriever(embd_model)
-        llm = LLM(retriever)
-    
+    dp = DataProcessor()
+    chunks, document = dp.build()
+    chunks_list = [c.page_content for c in chunks]
+    embd = EmbeddingManager()
+    embd_model = embd.get_model()
+    chunks_embedding = embd.embed_texts(chunks_list)
+    vectorstore = VectorStore()
+    vectorstore.add_documents(chunks, chunks_embedding)
+    retriever = vectorstore.get_retriever(embd_model)
+    llm = LLM(retriever)
     return llm
 
 
