@@ -33,7 +33,7 @@ class DataProcessor:
                         "page_content": file_ref.read()
                     }
                 )
-            if count >= 2:
+            if count >= 3000:
                 break
             count += 1
             
