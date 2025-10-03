@@ -14,7 +14,7 @@ def download_pmc_docs(
         bucket="pmc-oa-opendata",
         prefix="oa_comm/txt/all",
         target_dir=TARGET_DIR,
-        limit=10000
+        limit=2000
 ):
     os.makedirs(target_dir, exist_ok=True)
 
