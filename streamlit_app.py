@@ -8,7 +8,7 @@ import streamlit as st
 
 @st.cache_resource(show_spinner="🔄 Building pipeline...")
 def load_pipeline():
-    flag = download_pmc_docs()
+    download_pmc_docs()
     dp = DataProcessor()
     chunks, document = dp.build()
     chunks_list = [c.page_content for c in chunks]

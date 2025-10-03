@@ -8,7 +8,7 @@ from botocore.client import Config
 
 
 
-TARGET_DIR = os.path.join(BASE_DIR, "data", "demo")
+TARGET_DIR = os.path.join(BASE_DIR, "data", "pmc")
 
 def download_pmc_docs(
         bucket="pmc-oa-opendata",
@@ -40,6 +40,4 @@ def download_pmc_docs(
                 return
         
     print(f"✅ Finished. Total downloaded: {downloaded}")
-
-    return True 
  
