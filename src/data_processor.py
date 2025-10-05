@@ -12,8 +12,9 @@ class DataProcessor:
     from the PubMed Central (PMC) dataset.
     """
 
-    def __init__(self, data_path: str = DATA_DIR):
+    def __init__(self, data_path: str = DATA_DIR, limit=100):
         self.data_path = data_path
+        self.limit = limit
 
     def _load_files(self) -> list[dict]:
         """
@@ -33,7 +34,7 @@ class DataProcessor:
                         "page_content": file_ref.read()
                     }
                 )
-            if count >= 1000:
+            if count >= self.limit:
                 break
             count += 1
             
