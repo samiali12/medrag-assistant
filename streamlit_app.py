@@ -9,7 +9,7 @@ import streamlit as st
 
 @st.cache_resource(show_spinner="🔄 Building pipeline...")
 def load_pipeline():
-    limit = 100
+    limit = 1000
     download_pmc_docs(limit=limit)
     dp = DataProcessor()
     chunks, document = dp.build()
