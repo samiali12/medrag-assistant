@@ -1,7 +1,7 @@
 from typing import List
 import numpy as np
 from langchain_huggingface import HuggingFaceEmbeddings
-
+from tqdm import tqdm
 
 class EmbeddingManager:
     def __init__(self, model_name: str = "pritamdeka/S-BioBERT-snli-multinli-stsb"):
@@ -17,10 +17,17 @@ class EmbeddingManager:
     def get_model(self):
         return self.model
 
-    def embed_texts(self, texts: List[str]) -> np.ndarray:
+    def embed_texts(self, texts: List[str], batch_size: int = 16) -> np.ndarray:
         if self.model is None:
             raise RuntimeError("Model not loaded. Call load_model() first.")
-        return self.model.embed_documents(texts)
+        
+        embeddings = []
+        for i in tqdm(range(0, len(texts), batch_size), desc="Embedding texts"):
+            batch = texts[i:i + batch_size]
+            emb = self.model.embed_documents(batch)
+            embeddings.extend(emb)
+
+        return np.array(embeddings)
 
     def embed_one(self, text: str) -> np.ndarray:
         return self.model.embed_query(text)

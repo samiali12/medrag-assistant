@@ -3,6 +3,7 @@ from src.embedding import EmbeddingManager
 from src.vectorstore import VectorStore
 from src.download_data import download_pmc_docs
 from src.llm import LLM
+from tqdm import tqdm
 
 import streamlit as st 
 
@@ -11,7 +12,7 @@ def load_pipeline():
     download_pmc_docs()
     dp = DataProcessor()
     chunks, document = dp.build()
-    chunks_list = [c.page_content for c in chunks]
+    chunks_list = [c.page_content for c in tqdm(chunks, desc='Chunking')]
     embd = EmbeddingManager()
     embd_model = embd.get_model()
     chunks_embedding = embd.embed_texts(chunks_list)
