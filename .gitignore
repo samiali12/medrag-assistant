@@ -7,6 +7,8 @@ __pycache__/
 data
 demo 
 
+test.ipynb
+
 # C extensions
 *.so
 

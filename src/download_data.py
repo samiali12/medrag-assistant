@@ -17,6 +17,9 @@ def download_pmc_docs(
         target_dir=TARGET_DIR,
         limit=1000
 ):
+    if (len(os.listdir(target_dir)) > 0):
+        return
+
     os.makedirs(target_dir, exist_ok=True)
 
     s3 = boto3.client("s3", config=Config(signature_version=UNSIGNED))
