@@ -14,7 +14,7 @@ class EmbeddingManager:
     def load_model(self):
         print("Loading embedding model:", self.model_name)
         print('Using device', self.device)
-        self.model = SentenceTransformer(model_name=self.model_name, device=self.device)
+        self.model = SentenceTransformer(model_name_or_path=self.model_name, device=self.device)
         print("Model loaded.")
 
     def get_model(self):

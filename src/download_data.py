@@ -17,10 +17,13 @@ def download_pmc_docs(
         target_dir=TARGET_DIR,
         limit=1000
 ):
-    if (len(os.listdir(target_dir)) > 0):
-        return
-
+    
     os.makedirs(target_dir, exist_ok=True)
+
+    existing_files = os.listdir(target_dir)
+    if len(existing_files) >= limit:
+        print(f"✅ Found {len(existing_files)} existing files. Skipping download.")
+        return True
 
     s3 = boto3.client("s3", config=Config(signature_version=UNSIGNED))
     paginator = s3.get_paginator('list_objects_v2')
