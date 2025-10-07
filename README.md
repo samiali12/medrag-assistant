@@ -1,2 +1,14 @@
+---
+title: Madrag Assistant
+emoji: 🌟
+colorFrom: blue
+colorTo: pink
+sdk: streamlit
+sdk_version: "4.37.2"
+app_file: app.py
+pinned: false
+---
+
+
 # medrag-assistant
 MedRAG: A Retrieval-Augmented Generation (RAG) assistant that helps researchers and practitioners query, summarize, and verify insights from biomedical and medical research papers.
